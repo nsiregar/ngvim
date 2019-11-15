@@ -337,6 +337,10 @@ augroup vimrc-make-cmake
 augroup END
 
 set autoread
+augroup checktime
+  autocmd!
+  autocmd CursorHold,FocusGained,BufEnter * silent! checktime 
+augroup END
 
 "*****************************************************************************
 "" Mappings
