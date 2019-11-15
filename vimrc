@@ -218,6 +218,9 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+"" Highlight trailing whitespace
+set listchars=tab:⇥\ ,trail:-,extends:>,precedes:<,nbsp:⍽
+set list
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
