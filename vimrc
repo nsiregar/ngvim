@@ -66,7 +66,9 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Color
-Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
+let g:gruvbox_termcolors=16
+set background=dark
 
 "*****************************************************************************
 "" Custom bundles
@@ -158,6 +160,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set noshowmode
 
 set fileformats=unix,dos,mac
 
@@ -181,12 +184,12 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme molokai
+silent! colorscheme gruvbox
 
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Monospace\ 10
+set gfn=Ubuntu\ Mono\ Regular\ 10
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
@@ -202,7 +205,6 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -210,9 +212,7 @@ else
       set term=xterm-256color
     endif
   endif
-  
 endif
-
 
 if &term =~ '256color'
   set t_ut=
@@ -249,7 +249,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
