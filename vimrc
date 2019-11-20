@@ -68,7 +68,6 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'morhetz/gruvbox'
-let g:gruvbox_termcolors=16
 set background=dark
 
 "*****************************************************************************
