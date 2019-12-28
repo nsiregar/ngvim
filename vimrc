@@ -135,6 +135,10 @@ set fileencodings=utf-8
 set ttyfast
 set cmdheight=2
 
+"timeout
+set timeoutlen=1000
+set ttimeoutlen=0
+
 "" Set swapfile directories
 set swapfile
 set dir=/tmp
