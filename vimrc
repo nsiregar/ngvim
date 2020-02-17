@@ -1,4 +1,4 @@
-" vim-bootstrap 
+" vim-bootstrap
 
 "*****************************************************************************
 "" Vim-PLug core
@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/grep.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
@@ -338,7 +339,7 @@ augroup END
 set autoread
 augroup checktime
   autocmd!
-  autocmd CursorHold,FocusGained,BufEnter * silent! checktime 
+  autocmd CursorHold,FocusGained,BufEnter * silent! checktime
 augroup END
 
 "*****************************************************************************
@@ -651,3 +652,46 @@ endif
 "*****************************************************************************
 "" Convenience variables
 "*****************************************************************************
+let g:lightline = {
+  \   'colorscheme': 'gruvbox',
+  \   'active': {
+  \     'left':[ [ 'mode', 'paste' ],
+  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+  \     ]
+  \   },
+	\   'component': {
+	\     'lineinfo': ' %3l:%-2v',
+	\   },
+  \   'component_function': {
+  \     'gitbranch': 'fugitive#head',
+  \   }
+  \ }
+let g:lightline.separator = {
+	\   'left': '', 'right': ''
+  \}
+let g:lightline.subseparator = {
+	\   'left': '', 'right': ''
+  \}
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+let g:lightline.component_expand = {
+\   'buffers': 'lightline#bufferline#buffers'
+\}
+let g:lightline.component_type = {
+\   'buffers': 'tabsel'
+\}
+
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
+let g:lightline#bufferline#unnamed = "[NO NAME]"
+let g:lightline#bufferline#filename_modifier= ":."
+let g:lightline#bufferline#more_buffers = "..."
+let g:lightline#bufferline#modified = " ●"
+let g:lightline#bufferline#read_only = " "
+let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#unicode_symbols = 1
