@@ -63,10 +63,6 @@ Plug 'Shougo/vimproc.vim', {'do': g:make}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
-"" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 "" Color
 Plug 'morhetz/gruvbox'
 set background=dark
@@ -367,8 +363,17 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 "" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 nnoremap <silent> <S-t> :tabnew<CR>
 
 "" Set working directory
@@ -405,12 +410,6 @@ nnoremap <silent> <C-P> :FZF -m<CR>
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
 
 " ale
 let g:ale_linters = {}
