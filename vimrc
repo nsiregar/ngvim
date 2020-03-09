@@ -1,8 +1,3 @@
-" vim-bootstrap
-
-"*****************************************************************************
-"" Vim-PLug core
-"*****************************************************************************
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "c,go,javascript,python,ruby,rust"
@@ -44,7 +39,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -130,6 +124,9 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
 set cmdheight=2
+set splitbelow
+set splitright
+set nowrap
 
 "timeout
 set timeoutlen=1000
@@ -271,8 +268,8 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 30
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <leader>G :NERDTreeFind<CR>
+nnoremap <silent> <leader>g :NERDTreeToggle<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -342,16 +339,6 @@ augroup END
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
-
-"" Git
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
@@ -635,8 +622,6 @@ au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
-
-
 "*****************************************************************************
 "*****************************************************************************
 
@@ -646,7 +631,7 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 "*****************************************************************************
-"" Convenience variables
+"" Lightline Configuration
 "*****************************************************************************
 let g:lightline = {
   \   'colorscheme': 'gruvbox',
@@ -655,18 +640,18 @@ let g:lightline = {
   \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
   \     ]
   \   },
-	\   'component': {
-	\     'lineinfo': ' %3l:%-2v',
-	\   },
+  \   'component': {
+  \     'lineinfo': ' %3l:%-2v',
+  \   },
   \   'component_function': {
   \     'gitbranch': 'fugitive#head',
   \   }
   \ }
 let g:lightline.separator = {
-	\   'left': '', 'right': ''
+  \   'left': '', 'right': ''
   \}
 let g:lightline.subseparator = {
-	\   'left': '', 'right': ''
+  \   'left': '', 'right': ''
   \}
 let g:lightline.tabline = {
   \   'left': [ ['tabs'] ],
