@@ -445,12 +445,13 @@ noremap <C-h> <C-w>h
 vmap < <gv
 vmap > >gv
 
-"" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+"" Move line
+nmap <C-Up> :m -2<CR>
+nmap <C-Down> :m +1<CR>
 
-"" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
+"" Move visual block
+vnoremap <C-Up> :m '<-2<CR>gv=gv
+vnoremap <C-Down> :m '>+1<CR>gv=gv
 
 "*****************************************************************************
 "" Custom configs
@@ -565,7 +566,7 @@ let g:jedi#smart_auto_mappings = 0
 
 " Syntax highlight
 " Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
+let g:polyglot_disabled = ['python', 'markdown']
 let python_highlight_all = 1
 
 " ruby
