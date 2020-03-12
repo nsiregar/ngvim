@@ -179,6 +179,7 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
+set relativenumber
 
 let no_buffers_menu=1
 silent! colorscheme gruvbox
@@ -390,7 +391,7 @@ endif
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <C-B> :Buffers<CR>
-nnoremap <silent> <C-P> :FZF -m<CR>
+nnoremap <silent> <C-P> :GFiles<CR>
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
@@ -666,7 +667,11 @@ let g:lightline.component_type = {
 \}
 
 set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
+set guioptions-=e
+set guioptions-=T
+set guioptions-=m
+set guioptions-=r
+set guioptions-=L
 
 let g:lightline#bufferline#unnamed = "[NO NAME]"
 let g:lightline#bufferline#filename_modifier= ":."
