@@ -391,7 +391,13 @@ endif
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <C-B> :Buffers<CR>
-nnoremap <silent> <C-P> :GFiles<CR>
+
+let git_repo=isdirectory('.git')
+if git_repo
+   nnoremap <silent> <C-P> :GFiles<CR>
+else
+   nnoremap <silent> <C-P> :Files<CR>
+endif
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
