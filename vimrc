@@ -287,6 +287,7 @@ nnoremap <silent> <leader>sh :terminal<CR>
 "*****************************************************************************
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e
 
 "*****************************************************************************
 "" Functions
@@ -392,11 +393,11 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <C-B> :Buffers<CR>
 
-let git_repo=isdirectory('.git')
-if git_repo
+let g:git_repo=isdirectory('.git')
+if g:git_repo
    nnoremap <silent> <C-P> :GFiles<CR>
 else
-   nnoremap <silent> <C-P> :Files<CR>
+   nnoremap <silent> <C-P> :FZF<CR>
 endif
 
 "Recovery commands from history through FZF
