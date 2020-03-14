@@ -187,7 +187,7 @@ silent! colorscheme gruvbox
 set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
-set gfn=Ubuntu\ Mono\ Regular\ 10
+set gfn=JetBrains\ Mono\ Regular\ 8
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
