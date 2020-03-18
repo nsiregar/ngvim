@@ -572,6 +572,9 @@ let g:jedi#smart_auto_mappings = 0
 :call extend(g:ale_linters, {
     \'python': ['flake8'], })
 
+:call extend(g:ale_linters, {
+    \'ruby': [], })
+
 " Syntax highlight
 " Default highlight is better than polyglot
 let g:polyglot_disabled = ['python', 'markdown']
